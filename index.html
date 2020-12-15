@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://kit.fontawesome.com/fc3e9057b4.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <div class="container">
+                <div class="slider-wrapper">
+                    <div class="prev" @click="prev">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
+                    <div class="images">
+                        <img class="active" :src="images[counter]" alt="">
+                    </div>
+                    <div class="next" @click="next">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                    <div class="nav">
+                        <i :class="(index === counter) ? 'active' : '' " class="fas fa-circle" v-for="(img, index) in images"></i>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+    <!-- VueJs Script -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- Script JS -->
+    <script src="./main.js"></script>
+</body>
+</html>

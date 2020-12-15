@@ -10,7 +10,7 @@ let app = new Vue({
     el: '#app', 
     data:{
         counter:0,
-        timer: null,
+        timer: 0,
         images: [
             "https://images.pexels.com/photos/371633/pexels-photo-371633.jpeg?cs=srgb&dl=clouds-country-daylight-371633.jpg&fm=jpg",
             "https://static.photocdn.pt/images/articles/2017/04/28/iStock-646511634.jpg",
@@ -18,27 +18,44 @@ let app = new Vue({
             "https://static.photocdn.pt/images/articles/2017/04/28/iStock-546424192.jpg"
         ],
     },
-    mounted: function() {
-    this.startSlide();
+     mounted: function() {
+     this.startSlide();
+     let self = this;
+        document.addEventListener("keydown",function(e) {
+            e.preventDefault();
+        var code = e.keyCode;
+        
+        switch(code){
+            case 39:
+            self.next();
+            break;
+            case 37:
+            self.prev();
+            break;
+            default:
+                return;
+         }
+	});
   },
-  
+
     methods:{
+        
         startSlide: function() {
             this.timer = setInterval(this.next, 3000);
         },
         next(){
             this.counter ++;
-            if(this.counter === this.images.length){
+            if(this.counter >= this.images.length ){
                 this.counter = 0;
             }
         },
         prev(){
-            if(this.counter > 0){
-                this.counter --;
-                
-            }else {
-                this.counter === this.images.length - 1;
+            this.counter --;
+            if(this.counter <0){
+                this.counter = this.images.length -1;
             }
-        }
+        },
+
     }
 });
+

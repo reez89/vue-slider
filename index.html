@@ -21,14 +21,15 @@
                     <div class="next" @click="next">
                         <i class="fas fa-angle-right"></i>
                     </div>
-                    <div class="nav">
-                        <i :class="(index === counter) ? 'active' : '' " class="fas fa-circle" v-for="(img, index) in images"></i>
+                    <div class="nav" >
+                        <i :class="(index === counter) ? 'active' : '' " class="fas fa-circle" v-for="(img, index) in images"  :class="{active: (index == indexPosition)}" @click="counter = index" ></i>
                     </div>
                 </div>
             </div>
     </div>
 
-
+    <!-- Jquery Script -->
+    <script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
     <!-- VueJs Script -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <!-- Script JS -->

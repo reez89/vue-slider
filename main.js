@@ -22,7 +22,7 @@ let app = new Vue({
      this.startSlide();
      let self = this;
         document.addEventListener("keydown",function(e) {
-            e.preventDefault();
+        e.preventDefault();
         var code = e.keyCode;
         
         switch(code){
@@ -35,9 +35,8 @@ let app = new Vue({
             default:
                 return;
          }
-	});
-  },
-
+    });
+},
     methods:{
         
         startSlide: function() {
